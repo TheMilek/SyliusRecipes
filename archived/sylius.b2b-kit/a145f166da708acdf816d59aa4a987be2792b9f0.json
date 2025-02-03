@@ -1,0 +1,97 @@
+{
+    "manifests": {
+        "sylius/b2b-kit": {
+            "manifest": {
+                "bundles": {
+                    "Sylius\\B2BKit\\SyliusB2BKitPlugin": [
+                        "all"
+                    ],
+                    "OldSound\\RabbitMqBundle\\OldSoundRabbitMqBundle": [
+                        "all"
+                    ],
+                    "BitBag\\SyliusWishlistPlugin\\BitBagSyliusWishlistPlugin": [
+                        "all"
+                    ],
+                    "FOS\\ElasticaBundle\\FOSElasticaBundle": [
+                        "all"
+                    ],
+                    "BitBag\\SyliusElasticsearchPlugin\\BitBagSyliusElasticsearchPlugin": [
+                        "all"
+                    ],
+                    "FOS\\JsRoutingBundle\\FOSJsRoutingBundle": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/"
+                }
+            },
+            "files": {
+                "config/packages/_sylius_b2b_suite.yaml": {
+                    "contents": [
+                        "imports:",
+                        "    - { resource: \"@SyliusB2BKitPlugin/config/plugins/config.yaml\" }",
+                        "",
+                        "sylius_addressing:",
+                        "    resources:",
+                        "        address:",
+                        "            classes:",
+                        "                repository: Sylius\\B2BKit\\Repository\\AddressRepository",
+                        "",
+                        "sylius_customer:",
+                        "    resources:",
+                        "        customer:",
+                        "            classes:",
+                        "                repository: Sylius\\B2BKit\\Repository\\CustomerRepository",
+                        "        customer_group:",
+                        "            classes:",
+                        "                repository: Sylius\\B2BKit\\Repository\\CustomerGroupRepository",
+                        "",
+                        "sylius_order:",
+                        "    resources:",
+                        "        order:",
+                        "            classes:",
+                        "                repository: Sylius\\B2BKit\\Repository\\OrderRepository",
+                        "",
+                        "sylius_user:",
+                        "    resources:",
+                        "        shop:",
+                        "            user:",
+                        "                classes:",
+                        "                    repository: Sylius\\B2BKit\\Repository\\UserRepository"
+                    ],
+                    "executable": false
+                },
+                "config/packages/fos_elastica.yaml": {
+                    "contents": [
+                        "imports:",
+                        "  - { resource: '@SyliusB2BKitPlugin/config/indexes/*' }",
+                        "",
+                        "parameters:",
+                        "  bitbag_es_pagination_available_page_limits: [9, 18, 36]",
+                        "  bitbag_es_pagination_default_limit: 9",
+                        "  bitbag_es_fuzziness: AUTO",
+                        "",
+                        "twig:",
+                        "  globals:",
+                        "    bitbag_es_pagination_available_page_limits: \"%bitbag_es_pagination_available_page_limits%\"",
+                        "",
+                        "fos_elastica:",
+                        "  clients:",
+                        "    default: { url: '%env(ELASTICSEARCH_URL)%' }"
+                    ],
+                    "executable": false
+                },
+                "config/routes/sylius_b2b_suite.yaml": {
+                    "contents": [
+                        "sylius_b2b_suite:",
+                        "    resource: \"@SyliusB2BKitPlugin/config/routes/routes.yaml\"",
+                        ""
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "a145f166da708acdf816d59aa4a987be2792b9f0"
+        }
+    }
+}

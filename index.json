@@ -20,7 +20,8 @@
     },
     "recipes": {
         "sylius/b2b-kit": [
-            "0.1"
+            "0.1",
+            "0.4"
         ],
         "sylius/customer-service-plugin": [
             "0.1"
@@ -60,11 +61,11 @@
     "branch": "main",
     "is_contrib": false,
     "_links": {
-        "repository": "github.com/Sylius/SyliusRecipes",
-        "origin_template": "{package}:{version}@github.com/Sylius/SyliusRecipes:main",
-        "recipe_template": "https://raw.githubusercontent.com/Sylius/SyliusRecipes/flex/main/{package_dotted}.{version}.json",
+        "repository": "github.com/TheMilek/SyliusRecipes",
+        "origin_template": "{package}:{version}@github.com/TheMilek/SyliusRecipes:main",
+        "recipe_template": "https://raw.githubusercontent.com/TheMilek/SyliusRecipes/flex/main/{package_dotted}.{version}.json",
         "recipe_template_relative": "{package_dotted}.{version}.json",
-        "archived_recipes_template": "https://raw.githubusercontent.com/Sylius/SyliusRecipes/flex/main/archived/{package_dotted}/{ref}.json",
+        "archived_recipes_template": "https://raw.githubusercontent.com/TheMilek/SyliusRecipes/flex/main/archived/{package_dotted}/{ref}.json",
         "archived_recipes_template_relative": "archived/{package_dotted}/{ref}.json"
     }
 }
