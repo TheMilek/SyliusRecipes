@@ -58,5 +58,9 @@
             "position": "bottom",
             "warn_if_missing": true
         }
-    ]
+    ],
+    "env": {
+        "CUSTOMER_GROUP_PRICING_PRIORITY": "10",
+        "ORGANIZATION_PRICING_PRIORITY": "20"
+    }
 }
